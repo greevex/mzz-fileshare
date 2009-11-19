@@ -8,7 +8,8 @@
     <meta name="generator" content="{$smarty.const.MZZ_NAME} v.{$smarty.const.MZZ_VERSION}-{$smarty.const.MZZ_REVISION}" />
     <meta name="keywords" content="{meta show="keywords" default='credo-studio, design, art, architecture, дизайн, архитектура, архитектурный дизайн, credo'}"/>
     <meta name="description" content="{meta show="description" default='credo-studio'}" />
-    <link href="{$SITE_PATH}/templates/css/style1.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="{$SITE_PATH}/templates/js/mootools-1.2-core.js"></script>
+	<link href="{$SITE_PATH}/templates/css/style1.css" rel="stylesheet" type="text/css" />
 	{include file='include.external.css.tpl'}
 	<!--[if IE]>
 	<link rel="stylesheet" type="text/css" media="screen" href="{$SITE_PATH}/templates/css/slide.css" />
