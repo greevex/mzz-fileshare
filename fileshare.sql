@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 19 2009 г., 16:00
+-- Время создания: Ноя 19 2009 г., 16:02
 -- Версия сервера: 5.1.30
 -- Версия PHP: 5.2.9
 
@@ -560,7 +560,7 @@ CREATE TABLE IF NOT EXISTS `page_page_lang` (
 --
 
 INSERT INTO `page_page_lang` (`id`, `lang_id`, `title`, `content`, `keywords`, `description`) VALUES
-(1, 1, 'Добро пожаловать!', '<p><span style="font-size: x-large;"><strong><span style="font-size: large;"><span style="color: #ff9900;">Добро пожаловать в арт-студию Николая Добрина!</span></span></strong></span></p>', '', ''),
+(1, 1, 'Добро пожаловать!', '<h3>Файлообенник.....главная страница и всё такое...</h3>', '', ''),
 (1, 2, 'About us', '<strong>mzz</strong> - is a php5 framework for web-applications.', NULL, NULL),
 (2, 1, '404 Not Found', 'Запрашиваемая страница не найдена!', NULL, NULL),
 (2, 2, '404 Not Found', 'Page doesn''t exist', NULL, NULL),
