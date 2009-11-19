@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 19 2009 г., 15:41
+-- Время создания: Ноя 19 2009 г., 16:00
 -- Версия сервера: 5.1.30
 -- Версия PHP: 5.2.9
 
@@ -16,7 +16,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `dobrin`
+-- База данных: `fileshare`
 --
 
 -- --------------------------------------------------------
@@ -222,9 +222,6 @@ CREATE TABLE IF NOT EXISTS `gallery_categories` (
 -- Дамп данных таблицы `gallery_categories`
 --
 
-INSERT INTO `gallery_categories` (`id`, `string_id`, `name`, `description`, `active`) VALUES
-(1, 'graphic', 'Графика', 'Работа с графикой', 1),
-(2, 'design', 'Дизайн', 'Работа с дизайном', 1);
 
 -- --------------------------------------------------------
 
@@ -246,16 +243,6 @@ CREATE TABLE IF NOT EXISTS `gallery_photos` (
 -- Дамп данных таблицы `gallery_photos`
 --
 
-INSERT INTO `gallery_photos` (`id`, `photo_id`, `category`, `title`, `description`, `active`) VALUES
-(1, 1, 2, 'трататата', 'дизайн', 1),
-(2, 2, 2, 'трататата', 'дизайн', 1),
-(3, 3, 2, 'лалала', 'описаниеываываываыва', 1),
-(4, 4, 2, 'тралала', 'описаниеываываываываффффффф', 1),
-(5, 5, 2, 'тралалавававава', 'описанннниееее', 1),
-(6, 6, 1, 'еще трататата', 'описанннниееее', 1),
-(7, 7, 1, 'парам пам пам', 'парам пам пампарам пам пампарам пам пам', 1),
-(8, 8, 1, 'панки тоже любят', '^^', 1),
-(9, 9, 1, 'задачка по физике', 'тратата', 1);
 
 -- --------------------------------------------------------
 
@@ -310,19 +297,14 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem` (
   `args` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `menu_id` (`menu_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп данных таблицы `menu_menuitem`
 --
 
 INSERT INTO `menu_menuitem` (`id`, `type_id`, `menu_id`, `order`, `args`) VALUES
-(1, 3, 6, 1, 'a:1:{s:3:"url";s:16:"http://dobrin.ru";}'),
-(2, 3, 6, 2, 'a:1:{s:3:"url";s:20:"http://bio.dobrin.ru";}'),
-(3, 1, 6, 3, 'a:1:{s:3:"url";s:0:"";}'),
-(4, 1, 6, 4, 'a:1:{s:3:"url";s:7:"gallery";}'),
-(5, 1, 6, 5, 'a:1:{s:3:"url";s:14:"gallery/upload";}'),
-(6, 1, 6, 6, 'a:1:{s:3:"url";s:5:"admin";}');
+(7, 1, 6, 1, 'a:1:{s:3:"url";s:0:"";}');
 
 -- --------------------------------------------------------
 
@@ -342,12 +324,7 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_lang` (
 --
 
 INSERT INTO `menu_menuitem_lang` (`id`, `lang_id`, `title`) VALUES
-(1, 1, 'Главная'),
-(2, 1, 'Биография'),
-(3, 1, 'Школа'),
-(4, 1, 'Галерея'),
-(5, 1, 'Загрузить фото'),
-(6, 1, 'ПУ');
+(7, 1, 'Главная');
 
 -- --------------------------------------------------------
 
@@ -364,19 +341,14 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_tree` (
   PRIMARY KEY (`id`),
   KEY `foreign_key` (`foreign_key`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Дамп данных таблицы `menu_menuitem_tree`
 --
 
 INSERT INTO `menu_menuitem_tree` (`id`, `foreign_key`, `parent_id`, `level`, `path`) VALUES
-(1, 1, 0, 1, '1/'),
-(2, 2, 0, 1, '2/'),
-(3, 3, 0, 1, '3/'),
-(4, 4, 0, 1, '4/'),
-(5, 5, 0, 1, '5/'),
-(6, 6, 0, 1, '6/');
+(7, 7, 0, 1, '7/');
 
 -- --------------------------------------------------------
 
@@ -1290,7 +1262,7 @@ CREATE TABLE IF NOT EXISTS `user_userauth` (
   `obj_id` int(11) unsigned DEFAULT NULL,
   `time` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=144 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=145 ;
 
 --
 -- Дамп данных таблицы `user_userauth`
@@ -1315,7 +1287,8 @@ INSERT INTO `user_userauth` (`id`, `user_id`, `ip`, `hash`, `obj_id`, `time`) VA
 (140, 2, '87.255.12.59', '420b90207a5c98f734d299cbfd79c2fc', NULL, 1255886937),
 (141, 2, '87.255.12.59', '8ee63a6003416757fc7601988351dfd6', NULL, 1256062177),
 (142, 2, '87.255.12.59', '75fb454048ef455684949f69dadc747d', NULL, 1256089042),
-(143, 2, '213.85.32.23', '48845ed5a2926561a9b7c1fb7652d100', NULL, 1257158369);
+(143, 2, '213.85.32.23', '48845ed5a2926561a9b7c1fb7652d100', NULL, 1257158369),
+(144, 2, '127.0.0.1', '390f152890df56f9aeef009abc90e7b2', NULL, 1258635315);
 
 -- --------------------------------------------------------
 
