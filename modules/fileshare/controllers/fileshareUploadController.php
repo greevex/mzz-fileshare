@@ -56,14 +56,13 @@ class fileshareUploadController extends simpleController
 			
 			/* запись в таблицу */
 			$FileshareFileMapper = $this->toolkit->getMapper('fileshare', 'fileshareFile');
-			$photo = $galleryPhotoMapper->create();
-			$photo->setFile_id($data['title']);
-			$photo->setFormat($data['format']);
-			$photo->setTitle($data['title']);
-			$photo->setDescription($data['description']);
-			$photo->setFile($file);
+			$upfile = $FileshareFileMapper->create();
+			$upfile->setFileid($data['title']);
+			$upfile->setTitle($data['title']);
+			$upfile->setDescription($data['description']);
+			$upfile->setFileId($file);
 			$this->smarty->assign('data', $data);
-			$galleryPhotoMapper->save($photo);
+			$FileshareFileMapper->save($upfile);
 		} else {
 			/* дебаг 
 			echo "<pre style=\"background-color:#ddd;\">\n<strong>Дебаг:\n_POST:\n\n</strong>";
@@ -78,7 +77,7 @@ class fileshareUploadController extends simpleController
 		$url->setModule('fileshare');
 		$url->setAction('upload');
 		
-		$this->smarty->assign('form_action', $url->get());
+		$this->smarty->assign('form_action', '/upload');
 
         return $this->smarty->fetch('fileshare/upload.tpl');
     }

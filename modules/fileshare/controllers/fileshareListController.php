@@ -23,6 +23,9 @@ class fileshareListController extends simpleController
 {
     protected function getView()
     {
+		$fileMapper = $this->toolkit->getMapper('fileshare', 'fileshareFile');
+		$allfiles = $fileMapper->SearchAll();
+		$this->smarty->assign('allfiles', $allfiles);
         return $this->smarty->fetch('fileshare/list.tpl');
     }
 }

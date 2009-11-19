@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 19 2009 г., 16:44
+-- Время создания: Ноя 19 2009 г., 18:17
 -- Версия сервера: 5.1.30
 -- Версия PHP: 5.2.9
 
@@ -116,22 +116,14 @@ CREATE TABLE IF NOT EXISTS `filemanager_file` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `realname` (`realname`),
   KEY `folder_id` (`folder_id`,`name`,`ext`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
 
 --
 -- Дамп данных таблицы `filemanager_file`
 --
 
 INSERT INTO `filemanager_file` (`id`, `realname`, `name`, `ext`, `size`, `modified`, `downloads`, `right_header`, `direct_link`, `about`, `folder_id`, `obj_id`, `storage_id`) VALUES
-(1, '06a33b6070bc009ed0542bc484cacaea.JPG', '9.JPG', 'JPG', 134600, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(2, '0b9b4648f5f2206cf18ff5972fcc4391.jpg', 'x_dddba888.jpg', 'jpg', 22488, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(3, 'bec8a6c078c6854817dcbeed8655a5e7.JPG', 'IMAG0841.JPG', 'JPG', 589144, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(4, 'ba2d2acc0d6fb907118364abd5c80f3b.JPG', 'IMAG0844.JPG', 'JPG', 706153, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(5, 'ee27dd6b95dba5469f5bb02be8420dfd.jpg', 'DSCN4676.jpg', 'jpg', 3866086, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(6, 'd6ad6970d49e5d216ca1a92656bbf14d.jpg', 'Shot00013.jpg', 'jpg', 174937, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(7, '683724fcd52b3471eec939fd3f5c6ec4.jpg', 'задача по физике два.jpg', 'jpg', 39515, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(8, '45a6cfd820b777abbf8bfd8e044916f9.jpg', '111.jpg', 'jpg', 66658, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(9, '054fd8f2aed7a576f3b340d5e7d496a2.jpeg', '1.jpeg', 'jpeg', 22723, NULL, 0, NULL, 0, NULL, 3, NULL, 1);
+(18, '4be81c34e3b9bf0ed67c304526dfbba2.sql', 'fileshare_9.sql', 'sql', 41698, NULL, 0, NULL, 0, NULL, 4, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder` (
   `exts` char(255) DEFAULT NULL,
   `storage_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `filemanager_folder`
@@ -155,8 +147,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder` (
 
 INSERT INTO `filemanager_folder` (`id`, `name`, `title`, `filesize`, `exts`, `storage_id`) VALUES
 (1, 'root', 'root', NULL, NULL, 1),
-(2, 'test', 'test', 0, '', 1),
-(3, 'gallery', 'Галерея', 0, '', 1);
+(4, 'fileshare', 'Файлшара', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder_tree` (
   `level` int(11) unsigned DEFAULT NULL,
   `spath` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Дамп данных таблицы `filemanager_folder_tree`
@@ -179,8 +170,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder_tree` (
 
 INSERT INTO `filemanager_folder_tree` (`id`, `path`, `foreign_key`, `level`, `spath`) VALUES
 (1, 'root/', 1, 1, '1/'),
-(2, 'root/test/', 2, 2, '1/2/'),
-(3, 'root/gallery/', 3, 2, '1/3/');
+(4, 'root/fileshare/', 4, 2, '1/4/');
 
 -- --------------------------------------------------------
 
@@ -212,16 +202,20 @@ INSERT INTO `filemanager_storage` (`id`, `name`, `path`, `web_path`) VALUES
 CREATE TABLE IF NOT EXISTS `fileshare_file` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_id` int(16) NOT NULL,
-  `format` int(3) NOT NULL,
+  `format` varchar(3) DEFAULT ' ',
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `description` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Дамп данных таблицы `fileshare_file`
 --
 
+INSERT INTO `fileshare_file` (`id`, `file_id`, `format`, `title`, `description`) VALUES
+(1, 27, 'yes', 'дамп', 'дамп базы данных'),
+(2, 28, ' ', 'htaccess', 'хтаксес и тому подобное'),
+(3, 29, ' ', 'фывафыаыфв', 'блаблабла');
 
 -- --------------------------------------------------------
 
@@ -337,13 +331,15 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem` (
   `args` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `menu_id` (`menu_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `menu_menuitem`
 --
 
 INSERT INTO `menu_menuitem` (`id`, `type_id`, `menu_id`, `order`, `args`) VALUES
+(9, 1, 6, 3, 'a:1:{s:3:"url";s:4:"list";}'),
+(8, 1, 6, 2, 'a:1:{s:3:"url";s:6:"upload";}'),
 (7, 1, 6, 1, 'a:1:{s:3:"url";s:0:"";}');
 
 -- --------------------------------------------------------
@@ -364,6 +360,8 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_lang` (
 --
 
 INSERT INTO `menu_menuitem_lang` (`id`, `lang_id`, `title`) VALUES
+(9, 1, 'Все файлы'),
+(8, 1, 'Загрузить'),
 (7, 1, 'Главная');
 
 -- --------------------------------------------------------
@@ -381,13 +379,15 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_tree` (
   PRIMARY KEY (`id`),
   KEY `foreign_key` (`foreign_key`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `menu_menuitem_tree`
 --
 
 INSERT INTO `menu_menuitem_tree` (`id`, `foreign_key`, `parent_id`, `level`, `path`) VALUES
+(9, 9, 0, 1, '9/'),
+(8, 8, 0, 1, '8/'),
 (7, 7, 0, 1, '7/');
 
 -- --------------------------------------------------------
@@ -710,7 +710,7 @@ CREATE TABLE IF NOT EXISTS `sys_actions` (
   `name` char(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=140 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=141 ;
 
 --
 -- Дамп данных таблицы `sys_actions`
@@ -828,7 +828,8 @@ INSERT INTO `sys_actions` (`id`, `name`) VALUES
 (136, 'editOwner'),
 (137, 'categoryList'),
 (138, 'load'),
-(139, 'getThumb');
+(139, 'getThumb'),
+(140, 'download');
 
 -- --------------------------------------------------------
 
@@ -894,7 +895,7 @@ CREATE TABLE IF NOT EXISTS `sys_classes_actions` (
   `action_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `class_id` (`class_id`,`action_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=361 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=364 ;
 
 --
 -- Дамп данных таблицы `sys_classes_actions`
@@ -1011,7 +1012,10 @@ INSERT INTO `sys_classes_actions` (`id`, `class_id`, `action_id`) VALUES
 (357, 63, 138),
 (358, 1, 20),
 (359, 1, 66),
-(360, 62, 139);
+(360, 62, 139),
+(361, 66, 27),
+(362, 66, 5),
+(363, 66, 140);
 
 -- --------------------------------------------------------
 
@@ -1118,7 +1122,7 @@ INSERT INTO `sys_modules` (`id`, `name`, `title`, `icon`, `order`) VALUES
 (25, 'fileManager', 'file manager', '', 0),
 (26, 'gallery', 'Галерея', NULL, 0),
 (27, 'headloader', 'Подгрузка js и css', '', 0),
-(29, 'fileshare', 'fileshare', '', 0);
+(29, 'fileshare', 'Файл Хостинг модуль', '', 0);
 
 -- --------------------------------------------------------
 
