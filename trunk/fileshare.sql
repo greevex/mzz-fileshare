@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 19 2009 г., 16:02
+-- Время создания: Ноя 19 2009 г., 16:44
 -- Версия сервера: 5.1.30
 -- Версия PHP: 5.2.9
 
@@ -202,6 +202,46 @@ CREATE TABLE IF NOT EXISTS `filemanager_storage` (
 
 INSERT INTO `filemanager_storage` (`id`, `name`, `path`, `web_path`) VALUES
 (1, 'local', '../files/', '/');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fileshare_file`
+--
+
+CREATE TABLE IF NOT EXISTS `fileshare_file` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `file_id` int(16) NOT NULL,
+  `format` int(3) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `fileshare_file`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `fileshare_format`
+--
+
+CREATE TABLE IF NOT EXISTS `fileshare_format` (
+  `id` int(3) NOT NULL AUTO_INCREMENT,
+  `string_id` varchar(255) NOT NULL,
+  `ext` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `description` varchar(255) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `fileshare_format`
+--
+
 
 -- --------------------------------------------------------
 
@@ -625,7 +665,7 @@ CREATE TABLE IF NOT EXISTS `sys_access_registry` (
   `obj_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `class_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`obj_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1465 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1466 ;
 
 --
 -- Дамп данных таблицы `sys_access_registry`
@@ -656,7 +696,8 @@ INSERT INTO `sys_access_registry` (`obj_id`, `class_id`) VALUES
 (1461, 10),
 (1462, 7),
 (1463, 7),
-(1464, 6);
+(1464, 6),
+(1465, 7);
 
 -- --------------------------------------------------------
 
@@ -801,7 +842,7 @@ CREATE TABLE IF NOT EXISTS `sys_classes` (
   `module_id` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=64 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=68 ;
 
 --
 -- Дамп данных таблицы `sys_classes`
@@ -837,7 +878,9 @@ INSERT INTO `sys_classes` (`id`, `name`, `module_id`) VALUES
 (60, 'storage', 25),
 (61, 'galleryPhotos', 26),
 (62, 'galleryCategories', 26),
-(63, 'loader', 27);
+(63, 'loader', 27),
+(66, 'fileshareFile', 29),
+(67, 'fileshareFormat', 29);
 
 -- --------------------------------------------------------
 
@@ -1054,7 +1097,7 @@ CREATE TABLE IF NOT EXISTS `sys_modules` (
   `icon` char(255) DEFAULT NULL,
   `order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=30 ;
 
 --
 -- Дамп данных таблицы `sys_modules`
@@ -1074,7 +1117,8 @@ INSERT INTO `sys_modules` (`id`, `name`, `title`, `icon`, `order`) VALUES
 (22, 'config', 'Конфигурация', 'config.gif', 0),
 (25, 'fileManager', 'file manager', '', 0),
 (26, 'gallery', 'Галерея', NULL, 0),
-(27, 'headloader', 'Подгрузка js и css', '', 0);
+(27, 'headloader', 'Подгрузка js и css', '', 0),
+(29, 'fileshare', 'fileshare', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1129,7 @@ INSERT INTO `sys_modules` (`id`, `name`, `title`, `icon`, `order`) VALUES
 CREATE TABLE IF NOT EXISTS `sys_obj_id` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1465 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1466 ;
 
 --
 -- Дамп данных таблицы `sys_obj_id`
@@ -1113,7 +1157,8 @@ INSERT INTO `sys_obj_id` (`id`) VALUES
 (1461),
 (1462),
 (1463),
-(1464);
+(1464),
+(1465);
 
 -- --------------------------------------------------------
 
@@ -1126,7 +1171,7 @@ CREATE TABLE IF NOT EXISTS `sys_obj_id_named` (
   `name` char(255) DEFAULT NULL,
   PRIMARY KEY (`obj_id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1464 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1466 ;
 
 --
 -- Дамп данных таблицы `sys_obj_id_named`
@@ -1148,7 +1193,8 @@ INSERT INTO `sys_obj_id_named` (`obj_id`, `name`) VALUES
 (1455, 'groupFolder'),
 (1460, 'access_fileManager'),
 (1462, 'access_gallery'),
-(1463, 'access_headloader');
+(1463, 'access_headloader'),
+(1465, 'access_fileShare');
 
 -- --------------------------------------------------------
 
