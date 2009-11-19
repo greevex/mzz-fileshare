@@ -60,8 +60,7 @@ body {
 	padding: 0;
 	height:100%;
 	width:100%;
-	background: #525252 url(../images/background.jpg) repeat top;
-	background-attachment: fixed;
+	background-color: #aaa;
 }
 
 
@@ -99,14 +98,12 @@ a:hover {
 /* middle block */
 
 #middleline {
-	position: absolute;
 	left:250px;
 	top:60px;
 	max-width:600px;
 }
 
 #content, .leftmain {
-  position:relative;
   float:left;
   width: auto;
   left:20px;
@@ -116,18 +113,18 @@ a:hover {
 /* header */
 
 #header {
-	position:fixed;
 	top:0px;
 	width:100%;
 	left:0px;
 	height:94px;
+	/* Фон заглавной картинки
 	background:#f00 url(../images/main_img.jpg) repeat-x;
+	*/
 }
 
 /* новости */
 
 #news {
-	position: fixed;
 	left:0px;
 	top: 234px;
 	width:200px;
@@ -140,7 +137,6 @@ a:hover {
 /* меню */
 
 #navMenu {
-	position:fixed;
 	top:85px;
 	left:0px;
 	border-left:1px solid #fff;
@@ -180,10 +176,7 @@ a:hover {
 #navMenu li {
   display: block;
   text-align:left;
-  height: 35px;
-  padding-left:15px;
-  line-height: 24px;
-  background-image:url(../images/button.jpg);
+  background-color: #622;
 }
 
 #navMenu li.activeNavElement {
@@ -212,7 +205,7 @@ a:hover {
   height:20px;
   bottom:0px;
   font-size:12px;
-  background-color:#d26f18;
+  background-color:#fff;
 }
 
 #footer a{color:#000;}

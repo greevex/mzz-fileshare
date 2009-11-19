@@ -3,13 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<!--[if lt IE 7]><meta http-equiv="Refresh" content="0; url=http://www.microsoft.com/rus/windows/internet-explorer/" /><![endif]-->
-    <title>Художественная школа Добрина{title separator=" - " start=" | "}</title>
+    <title>Файлообменная система высокой пробы на основе фреймворка высшего класса именованного mzz{title separator=" ][ " start=" ][ "}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="generator" content="{$smarty.const.MZZ_NAME} v.{$smarty.const.MZZ_VERSION}-{$smarty.const.MZZ_REVISION}" />
     <meta name="keywords" content="{meta show="keywords" default='credo-studio, design, art, architecture, дизайн, архитектура, архитектурный дизайн, credo'}"/>
     <meta name="description" content="{meta show="description" default='credo-studio'}" />
     <link href="{$SITE_PATH}/templates/css/style1.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="{$SITE_PATH}/templates/js/mootools-1.2-core.js"></script>
 	{include file='include.external.css.tpl'}
 	<!--[if IE]>
 	<link rel="stylesheet" type="text/css" media="screen" href="{$SITE_PATH}/templates/css/slide.css" />
