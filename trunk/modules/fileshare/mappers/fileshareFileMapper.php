@@ -75,9 +75,13 @@ class fileshareFileMapper extends mapper
                 0 => -2147483647,
                 1 => 2147483648,
             ),
-            'accessor' => 'getFileId',
-            'mutator' => 'setFileId',
-        ),
+           'accessor' => 'getFileId',
+           'mutator' => 'setFileId',
+           'relation' => 'one', 
+           'foreign_key' => 'id', 
+           'mapper' => 'fileManager/file',
+           'join_type' => 'inner'
+       ),
         'format' => 
         array (
             'type' => 'int',

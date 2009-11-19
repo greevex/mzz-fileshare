@@ -46,6 +46,7 @@ $router->addRoute('gallerySelect', new requestRoute('gallery', array('section' =
 $router->addRoute('galleryList', new requestRoute('gallery/:name', array('section' => 'gallery', 'action' => 'list')));
 $router->addRoute('galleryUpload', new requestRoute('gallery/upload', array('section' => 'gallery', 'action' => 'upload')));
 $router->addRoute('fileshareUpload', new requestRoute('upload', array('section' => 'fileshare', 'action' => 'upload')));
+$router->addRoute('fileshareList', new requestRoute('list', array('section' => 'fileshare', 'action' => 'list')));
 
 $router->addRoute('default', new requestRoute('', array('section' => 'page', 'action' => 'view', 'name' => 'main')));
 
