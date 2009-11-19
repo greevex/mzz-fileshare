@@ -2,13 +2,13 @@
 {load module="user" action="login" module="user" onlyForm=true _side="left"}
 <!-- header -->
 <div id="header">
-<span id="siteTitle">Файлообменник</span>
-</div>
-<!-- middle content -->
-<div id="middleline">
+	<span id="siteTitle">Файлообменник</span>
 	<div id="navMenu">
 	  {load module="menu" action="view" name="hmenu" tplPrefix="side/"}
 	</div>
+</div>
+<!-- middle content -->
+<div id="middleline">
 	<div id="content">
 	<div{if false && $current_section != 'gallery' && $current_section != 'forum'} id="leftMainCol"{/if}>
 		<div id="container">
@@ -28,6 +28,10 @@
 </div>
 <!-- footer -->
 <div id="footer">
-	<p id="legal1">{$smarty.const.MZZ_NAME} v.{$smarty.const.MZZ_VERSION}-{$smarty.const.MZZ_REVISION} &copy; {"Y"|date}.
-{$timer->toString()}</p><p id="legal2">Webmaster <a href="http://greevex.ru">GreeveX</a></p>
+	<p id="legal1">
+		{$smarty.const.MZZ_NAME} v.{$smarty.const.MZZ_VERSION}-{$smarty.const.MZZ_REVISION} &copy; {"Y"|date}. {$timer->toString()}
+	</p>
+	<p id="legal2">
+		Webmaster <a href="http://greevex.ru">GreeveX</a>
+	</p>
 </div>
