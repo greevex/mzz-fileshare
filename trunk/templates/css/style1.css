@@ -60,7 +60,7 @@ body {
 	padding: 0;
 	height:100%;
 	width:100%;
-	background-color: #aaa;
+	background-color: #000;
 }
 
 
@@ -81,7 +81,9 @@ a:hover {
 }
 
 #allcontent {
-	width:100%;
+	margin: 5%;
+	margin-top: 10px;
+	width: 90%;
 }
 
 #siteTitle {
@@ -100,15 +102,12 @@ a:hover {
 #middleline {
 	left:250px;
 	top:60px;
-	max-width:600px;
 }
 
 #content, .leftmain {
-  float:left;
-  width: auto;
-  left:20px;
-  top:-10px;
+  width: 100%;
 }
+
  
 /* header */
 
@@ -116,7 +115,8 @@ a:hover {
 	top:0px;
 	width:100%;
 	left:0px;
-	height:94px;
+	height:60px;
+	background: #000066;
 	/* Фон заглавной картинки
 	background:#f00 url(../images/main_img.jpg) repeat-x;
 	*/
@@ -137,9 +137,9 @@ a:hover {
 /* меню */
 
 #navMenu {
-	top:85px;
-	left:0px;
-	border-left:1px solid #fff;
+	position:relative;
+	top: 38px;
+	float:right;
 }
 
 #navMenu a {
@@ -155,45 +155,36 @@ a:hover {
 #navMenu ul,#navMenu li {
   margin: 0;
   padding: 0;
+  display:inline;
 }
 
 #navMenu ul {
   position:relative;
-  width: 200px;
-  border-right:3px solid white;
-  height:auto;
-  text-align: center;
+  text-align:right;
   margin: auto auto;
   /*
   min-height:500px;
   width: 470px;
   */
   float: left;
-  margin-top: 9px;
-  background-color:#e67817;
 }
 
 #navMenu li {
-  display: block;
-  text-align:left;
+  text-align:center;
+  margin-left:1px;
   background-color: #622;
 }
 
 #navMenu li.activeNavElement {
-  padding: 0px 0 0px 14px;
   height: 31px;
   margin: 0;
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 #navMenu li.activeNavElement a {
-  display: block;
-  float: left;
   height: 31px;
-  line-height: 27px;
   color: #fff;
-  padding: 0px 14px 0px 0;
-    padding-top: 0px;
+  padding-top: 0px;
   margin: 0;
 }
 
@@ -227,9 +218,8 @@ a:hover {
 
 #col2 {
   position:relative;
-  width:auto;
-  top:50px;
-  left:0px;
+  width: 100%;
+  background: #000066;
 }
 
 /* google chrome fix */
