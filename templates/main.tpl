@@ -1,5 +1,9 @@
 {* main="header.tpl" placeholder="content" *}
 {load module="user" action="login" module="user" onlyForm=true _side="left"}
+<!-- header -->
+<div id="header">
+<span id="siteTitle">Файлообменник</span>
+</div>
 <!-- middle content -->
 <div id="middleline">
 	<div id="navMenu">
@@ -21,10 +25,6 @@
 
 	</div>
 	{/if}
-</div>
-<!-- header -->
-<div id="header">
-<span id="siteTitle"><img src="{$SITE_PATH}/templates/images/title.png" alt=""/></span>
 </div>
 <!-- footer -->
 <div id="footer">
