@@ -2,24 +2,29 @@
 -- version 3.2.2-rc1
 -- http://www.phpmyadmin.net
 --
--- Хост: localhost
--- Время создания: Ноя 18 2009 г., 17:41
--- Версия сервера: 5.1.30
--- Версия PHP: 5.2.9
+-- РҐРѕСЃС‚: localhost
+-- Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ: РќРѕСЏ 19 2009 Рі., 15:41
+-- Р’РµСЂСЃРёСЏ СЃРµСЂРІРµСЂР°: 5.1.30
+-- Р’РµСЂСЃРёСЏ PHP: 5.2.9
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
 --
--- База данных: `dobrin`
+-- Р‘Р°Р·Р° РґР°РЅРЅС‹С…: `dobrin`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments_comments`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `comments_comments`
 --
 
-DROP TABLE IF EXISTS `comments_comments`;
 CREATE TABLE IF NOT EXISTS `comments_comments` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `obj_id` int(11) unsigned DEFAULT NULL,
@@ -32,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `comments_comments` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `comments_comments`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `comments_comments`
 --
 
 INSERT INTO `comments_comments` (`id`, `obj_id`, `text`, `user_id`, `created`, `folder_id`) VALUES
@@ -41,10 +46,9 @@ INSERT INTO `comments_comments` (`id`, `obj_id`, `text`, `user_id`, `created`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments_commentsfolder`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `comments_commentsfolder`
 --
 
-DROP TABLE IF EXISTS `comments_commentsfolder`;
 CREATE TABLE IF NOT EXISTS `comments_commentsfolder` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(11) unsigned DEFAULT NULL,
@@ -57,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `comments_commentsfolder` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `comments_commentsfolder`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `comments_commentsfolder`
 --
 
 INSERT INTO `comments_commentsfolder` (`id`, `parent_id`, `module`, `type`, `by_field`, `comments_count`) VALUES
@@ -68,10 +72,9 @@ INSERT INTO `comments_commentsfolder` (`id`, `parent_id`, `module`, `type`, `by_
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `comments_comments_tree`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `comments_comments_tree`
 --
 
-DROP TABLE IF EXISTS `comments_comments_tree`;
 CREATE TABLE IF NOT EXISTS `comments_comments_tree` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `foreign_key` int(11) DEFAULT NULL,
@@ -84,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `comments_comments_tree` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `comments_comments_tree`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `comments_comments_tree`
 --
 
 INSERT INTO `comments_comments_tree` (`id`, `foreign_key`, `parent_id`, `level`, `path`) VALUES
@@ -93,14 +96,13 @@ INSERT INTO `comments_comments_tree` (`id`, `foreign_key`, `parent_id`, `level`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `filemanager_file`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `filemanager_file`
 --
 
-DROP TABLE IF EXISTS `filemanager_file`;
 CREATE TABLE IF NOT EXISTS `filemanager_file` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `realname` varchar(255) DEFAULT 'имя в фс в каталоге на сервере',
-  `name` varchar(255) DEFAULT 'имя с которым файл будет отдаваться клиенту',
+  `realname` varchar(255) DEFAULT 'РёРјСЏ РІ С„СЃ РІ РєР°С‚Р°Р»РѕРіРµ РЅР° СЃРµСЂРІРµСЂРµ',
+  `name` varchar(255) DEFAULT 'РёРјСЏ СЃ РєРѕС‚РѕСЂС‹Рј С„Р°Р№Р» Р±СѓРґРµС‚ РѕС‚РґР°РІР°С‚СЊСЃСЏ РєР»РёРµРЅС‚Сѓ',
   `ext` varchar(20) DEFAULT NULL,
   `size` int(11) DEFAULT NULL,
   `modified` int(11) DEFAULT NULL,
@@ -117,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_file` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Дамп данных таблицы `filemanager_file`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `filemanager_file`
 --
 
 INSERT INTO `filemanager_file` (`id`, `realname`, `name`, `ext`, `size`, `modified`, `downloads`, `right_header`, `direct_link`, `about`, `folder_id`, `obj_id`, `storage_id`) VALUES
@@ -127,17 +129,16 @@ INSERT INTO `filemanager_file` (`id`, `realname`, `name`, `ext`, `size`, `modifi
 (4, 'ba2d2acc0d6fb907118364abd5c80f3b.JPG', 'IMAG0844.JPG', 'JPG', 706153, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
 (5, 'ee27dd6b95dba5469f5bb02be8420dfd.jpg', 'DSCN4676.jpg', 'jpg', 3866086, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
 (6, 'd6ad6970d49e5d216ca1a92656bbf14d.jpg', 'Shot00013.jpg', 'jpg', 174937, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
-(7, '683724fcd52b3471eec939fd3f5c6ec4.jpg', 'задача по физике два.jpg', 'jpg', 39515, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
+(7, '683724fcd52b3471eec939fd3f5c6ec4.jpg', 'Р·Р°РґР°С‡Р° РїРѕ С„РёР·РёРєРµ РґРІР°.jpg', 'jpg', 39515, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
 (8, '45a6cfd820b777abbf8bfd8e044916f9.jpg', '111.jpg', 'jpg', 66658, NULL, 0, NULL, 0, NULL, 3, NULL, 1),
 (9, '054fd8f2aed7a576f3b340d5e7d496a2.jpeg', '1.jpeg', 'jpeg', 22723, NULL, 0, NULL, 0, NULL, 3, NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `filemanager_folder`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `filemanager_folder`
 --
 
-DROP TABLE IF EXISTS `filemanager_folder`;
 CREATE TABLE IF NOT EXISTS `filemanager_folder` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -149,21 +150,20 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `filemanager_folder`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `filemanager_folder`
 --
 
 INSERT INTO `filemanager_folder` (`id`, `name`, `title`, `filesize`, `exts`, `storage_id`) VALUES
 (1, 'root', 'root', NULL, NULL, 1),
 (2, 'test', 'test', 0, '', 1),
-(3, 'gallery', 'Галерея', 0, '', 1);
+(3, 'gallery', 'Р“Р°Р»РµСЂРµСЏ', 0, '', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `filemanager_folder_tree`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `filemanager_folder_tree`
 --
 
-DROP TABLE IF EXISTS `filemanager_folder_tree`;
 CREATE TABLE IF NOT EXISTS `filemanager_folder_tree` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `path` text,
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_folder_tree` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `filemanager_folder_tree`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `filemanager_folder_tree`
 --
 
 INSERT INTO `filemanager_folder_tree` (`id`, `path`, `foreign_key`, `level`, `spath`) VALUES
@@ -185,10 +185,9 @@ INSERT INTO `filemanager_folder_tree` (`id`, `path`, `foreign_key`, `level`, `sp
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `filemanager_storage`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `filemanager_storage`
 --
 
-DROP TABLE IF EXISTS `filemanager_storage`;
 CREATE TABLE IF NOT EXISTS `filemanager_storage` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -198,7 +197,7 @@ CREATE TABLE IF NOT EXISTS `filemanager_storage` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `filemanager_storage`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `filemanager_storage`
 --
 
 INSERT INTO `filemanager_storage` (`id`, `name`, `path`, `web_path`) VALUES
@@ -207,10 +206,9 @@ INSERT INTO `filemanager_storage` (`id`, `name`, `path`, `web_path`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `gallery_categories`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `gallery_categories`
 --
 
-DROP TABLE IF EXISTS `gallery_categories`;
 CREATE TABLE IF NOT EXISTS `gallery_categories` (
   `id` int(3) NOT NULL AUTO_INCREMENT,
   `string_id` varchar(50) NOT NULL,
@@ -221,20 +219,19 @@ CREATE TABLE IF NOT EXISTS `gallery_categories` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `gallery_categories`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `gallery_categories`
 --
 
 INSERT INTO `gallery_categories` (`id`, `string_id`, `name`, `description`, `active`) VALUES
-(1, 'graphic', 'Графика', 'Работа с графикой', 1),
-(2, 'design', 'Дизайн', 'Работа с дизайном', 1);
+(1, 'graphic', 'Р“СЂР°С„РёРєР°', 'Р Р°Р±РѕС‚Р° СЃ РіСЂР°С„РёРєРѕР№', 1),
+(2, 'design', 'Р”РёР·Р°Р№РЅ', 'Р Р°Р±РѕС‚Р° СЃ РґРёР·Р°Р№РЅРѕРј', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `gallery_photos`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `gallery_photos`
 --
 
-DROP TABLE IF EXISTS `gallery_photos`;
 CREATE TABLE IF NOT EXISTS `gallery_photos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `photo_id` int(16) NOT NULL,
@@ -246,27 +243,26 @@ CREATE TABLE IF NOT EXISTS `gallery_photos` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Дамп данных таблицы `gallery_photos`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `gallery_photos`
 --
 
 INSERT INTO `gallery_photos` (`id`, `photo_id`, `category`, `title`, `description`, `active`) VALUES
-(1, 1, 2, 'трататата', 'дизайн', 1),
-(2, 2, 2, 'трататата', 'дизайн', 1),
-(3, 3, 2, 'лалала', 'описаниеываываываыва', 1),
-(4, 4, 2, 'тралала', 'описаниеываываываываффффффф', 1),
-(5, 5, 2, 'тралалавававава', 'описанннниееее', 1),
-(6, 6, 1, 'еще трататата', 'описанннниееее', 1),
-(7, 7, 1, 'парам пам пам', 'парам пам пампарам пам пампарам пам пам', 1),
-(8, 8, 1, 'панки тоже любят', '^^', 1),
-(9, 9, 1, 'задачка по физике', 'тратата', 1);
+(1, 1, 2, 'С‚СЂР°С‚Р°С‚Р°С‚Р°', 'РґРёР·Р°Р№РЅ', 1),
+(2, 2, 2, 'С‚СЂР°С‚Р°С‚Р°С‚Р°', 'РґРёР·Р°Р№РЅ', 1),
+(3, 3, 2, 'Р»Р°Р»Р°Р»Р°', 'РѕРїРёСЃР°РЅРёРµС‹РІР°С‹РІР°С‹РІР°С‹РІР°', 1),
+(4, 4, 2, 'С‚СЂР°Р»Р°Р»Р°', 'РѕРїРёСЃР°РЅРёРµС‹РІР°С‹РІР°С‹РІР°С‹РІР°С„С„С„С„С„С„С„', 1),
+(5, 5, 2, 'С‚СЂР°Р»Р°Р»Р°РІР°РІР°РІР°РІР°', 'РѕРїРёСЃР°РЅРЅРЅРЅРёРµРµРµРµ', 1),
+(6, 6, 1, 'РµС‰Рµ С‚СЂР°С‚Р°С‚Р°С‚Р°', 'РѕРїРёСЃР°РЅРЅРЅРЅРёРµРµРµРµ', 1),
+(7, 7, 1, 'РїР°СЂР°Рј РїР°Рј РїР°Рј', 'РїР°СЂР°Рј РїР°Рј РїР°РјРїР°СЂР°Рј РїР°Рј РїР°РјРїР°СЂР°Рј РїР°Рј РїР°Рј', 1),
+(8, 8, 1, 'РїР°РЅРєРё С‚РѕР¶Рµ Р»СЋР±СЏС‚', '^^', 1),
+(9, 9, 1, 'Р·Р°РґР°С‡РєР° РїРѕ С„РёР·РёРєРµ', 'С‚СЂР°С‚Р°С‚Р°', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `headloader_loader`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `headloader_loader`
 --
 
-DROP TABLE IF EXISTS `headloader_loader`;
 CREATE TABLE IF NOT EXISTS `headloader_loader` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -276,17 +272,16 @@ CREATE TABLE IF NOT EXISTS `headloader_loader` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `headloader_loader`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `headloader_loader`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_menu`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `menu_menu`
 --
 
-DROP TABLE IF EXISTS `menu_menu`;
 CREATE TABLE IF NOT EXISTS `menu_menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
@@ -295,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `menu_menu` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
--- Дамп данных таблицы `menu_menu`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `menu_menu`
 --
 
 INSERT INTO `menu_menu` (`id`, `name`, `obj_id`) VALUES
@@ -304,10 +299,9 @@ INSERT INTO `menu_menu` (`id`, `name`, `obj_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_menuitem`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `menu_menuitem`
 --
 
-DROP TABLE IF EXISTS `menu_menuitem`;
 CREATE TABLE IF NOT EXISTS `menu_menuitem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -319,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Дамп данных таблицы `menu_menuitem`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `menu_menuitem`
 --
 
 INSERT INTO `menu_menuitem` (`id`, `type_id`, `menu_id`, `order`, `args`) VALUES
@@ -333,10 +327,9 @@ INSERT INTO `menu_menuitem` (`id`, `type_id`, `menu_id`, `order`, `args`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_menuitem_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `menu_menuitem_lang`
 --
 
-DROP TABLE IF EXISTS `menu_menuitem_lang`;
 CREATE TABLE IF NOT EXISTS `menu_menuitem_lang` (
   `id` int(11) NOT NULL DEFAULT '0',
   `lang_id` int(11) NOT NULL DEFAULT '0',
@@ -345,24 +338,23 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_lang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `menu_menuitem_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `menu_menuitem_lang`
 --
 
 INSERT INTO `menu_menuitem_lang` (`id`, `lang_id`, `title`) VALUES
-(1, 1, 'Главная'),
-(2, 1, 'Биография'),
-(3, 1, 'Школа'),
-(4, 1, 'Галерея'),
-(5, 1, 'Загрузить фото'),
-(6, 1, 'ПУ');
+(1, 1, 'Р“Р»Р°РІРЅР°СЏ'),
+(2, 1, 'Р‘РёРѕРіСЂР°С„РёСЏ'),
+(3, 1, 'РЁРєРѕР»Р°'),
+(4, 1, 'Р“Р°Р»РµСЂРµСЏ'),
+(5, 1, 'Р—Р°РіСЂСѓР·РёС‚СЊ С„РѕС‚Рѕ'),
+(6, 1, 'РџРЈ');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `menu_menuitem_tree`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `menu_menuitem_tree`
 --
 
-DROP TABLE IF EXISTS `menu_menuitem_tree`;
 CREATE TABLE IF NOT EXISTS `menu_menuitem_tree` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `foreign_key` int(11) DEFAULT NULL,
@@ -375,7 +367,7 @@ CREATE TABLE IF NOT EXISTS `menu_menuitem_tree` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Дамп данных таблицы `menu_menuitem_tree`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `menu_menuitem_tree`
 --
 
 INSERT INTO `menu_menuitem_tree` (`id`, `foreign_key`, `parent_id`, `level`, `path`) VALUES
@@ -389,10 +381,9 @@ INSERT INTO `menu_menuitem_tree` (`id`, `foreign_key`, `parent_id`, `level`, `pa
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news_news`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `news_news`
 --
 
-DROP TABLE IF EXISTS `news_news`;
 CREATE TABLE IF NOT EXISTS `news_news` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `obj_id` int(11) DEFAULT NULL,
@@ -405,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `news_news` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=170 ;
 
 --
--- Дамп данных таблицы `news_news`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `news_news`
 --
 
 INSERT INTO `news_news` (`id`, `obj_id`, `editor`, `folder_id`, `created`, `updated`) VALUES
@@ -414,10 +405,9 @@ INSERT INTO `news_news` (`id`, `obj_id`, `editor`, `folder_id`, `created`, `upda
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news_newsfolder`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `news_newsfolder`
 --
 
-DROP TABLE IF EXISTS `news_newsfolder`;
 CREATE TABLE IF NOT EXISTS `news_newsfolder` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -430,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `news_newsfolder` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=32 ;
 
 --
--- Дамп данных таблицы `news_newsfolder`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `news_newsfolder`
 --
 
 INSERT INTO `news_newsfolder` (`id`, `name`, `parent`, `path`, `title`) VALUES
@@ -440,10 +430,9 @@ INSERT INTO `news_newsfolder` (`id`, `name`, `parent`, `path`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news_newsfolder_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `news_newsfolder_lang`
 --
 
-DROP TABLE IF EXISTS `news_newsfolder_lang`;
 CREATE TABLE IF NOT EXISTS `news_newsfolder_lang` (
   `id` int(11) NOT NULL DEFAULT '0',
   `lang_id` int(11) NOT NULL DEFAULT '0',
@@ -452,22 +441,21 @@ CREATE TABLE IF NOT EXISTS `news_newsfolder_lang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
 --
--- Дамп данных таблицы `news_newsfolder_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `news_newsfolder_lang`
 --
 
 INSERT INTO `news_newsfolder_lang` (`id`, `lang_id`, `title`) VALUES
-(2, 1, 'Новости'),
+(2, 1, 'РќРѕРІРѕСЃС‚Рё'),
 (2, 2, 'News'),
-(18, 1, 'Главное'),
+(18, 1, 'Р“Р»Р°РІРЅРѕРµ'),
 (18, 2, 'Main');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news_newsfolder_tree`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `news_newsfolder_tree`
 --
 
-DROP TABLE IF EXISTS `news_newsfolder_tree`;
 CREATE TABLE IF NOT EXISTS `news_newsfolder_tree` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `path` text,
@@ -478,7 +466,7 @@ CREATE TABLE IF NOT EXISTS `news_newsfolder_tree` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
--- Дамп данных таблицы `news_newsfolder_tree`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `news_newsfolder_tree`
 --
 
 INSERT INTO `news_newsfolder_tree` (`id`, `path`, `foreign_key`, `level`, `spath`) VALUES
@@ -488,10 +476,9 @@ INSERT INTO `news_newsfolder_tree` (`id`, `path`, `foreign_key`, `level`, `spath
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `news_news_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `news_news_lang`
 --
 
-DROP TABLE IF EXISTS `news_news_lang`;
 CREATE TABLE IF NOT EXISTS `news_news_lang` (
   `id` int(11) NOT NULL DEFAULT '0',
   `lang_id` int(11) NOT NULL DEFAULT '0',
@@ -502,19 +489,18 @@ CREATE TABLE IF NOT EXISTS `news_news_lang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `news_news_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `news_news_lang`
 --
 
 INSERT INTO `news_news_lang` (`id`, `lang_id`, `title`, `annotation`, `text`) VALUES
-(169, 1, 'Россияне назвали свои любимые бренды', 'Первые три места рейтинга любимых брендов россиян заняли Samsung, Sony и Nokia. На четвертом месте Panasonic, а на пятом - Toyota. Такие результаты дало исследование компании Online Market Intelligence. В двадцатку любимых россиянами брендов вошли Nissan, Reebok и Honda, не попавшие в прошлогодний рейтинг.', 'Первые три места рейтинга любимых брендов россиян заняли Samsung, Sony и Nokia. Такие результаты дало исследование, проведенное компанией Online Market Intelligence.\n\nТаким образом, в тройке лидеров оказались те же бренды, что и в 2008 году, но Samsung поднялся на первое место со второго, а Sony потеряла одну строчку. На четвертом месте Panasonic, а на пятом - Toyota. В прошлом году пятое место занимал Adidas, опустившийся на шестую строчку.\n\nСильнее всего упали в рейтинге бренды BMW (опустился с седьмого места на девятнадцатое) и Mercedes (с восьмого на восемнадцатое). Между тем, в двадцатку любимых брендов попали Nissan, Reebok и Honda, не вошедшие в рейтинг 2008 года.\n\nПолностью список любимых брендов выглядит следующим образом:\n\n   1. Samsung\n   2. Sony\n   3. Nokia\n   4. Panasonic\n   5. Toyota\n   6. Adidas\n   7. Canon\n   8. Bosch\n   9. Asus\n  10. Philips\n  11. HP\n  12. Sony Ericsson\n  13. Nike\n  14. LG\n  15. Nissan\n  16. Coca-Cola\n  17. Reebok\n  18. Mercedes\n  19. BMW\n  20. Honda \n\nВ основу рейтинга легла доля упомянувших каждый бренд от общего числа респондентов, назвавших хотя бы один бренд. Сообщается также, что полный материал о результатах исследования с комментариями экспертов будет опубликован в еженедельнике "Компания". ');
+(169, 1, 'Р РѕСЃСЃРёСЏРЅРµ РЅР°Р·РІР°Р»Рё СЃРІРѕРё Р»СЋР±РёРјС‹Рµ Р±СЂРµРЅРґС‹', 'РџРµСЂРІС‹Рµ С‚СЂРё РјРµСЃС‚Р° СЂРµР№С‚РёРЅРіР° Р»СЋР±РёРјС‹С… Р±СЂРµРЅРґРѕРІ СЂРѕСЃСЃРёСЏРЅ Р·Р°РЅСЏР»Рё Samsung, Sony Рё Nokia. РќР° С‡РµС‚РІРµСЂС‚РѕРј РјРµСЃС‚Рµ Panasonic, Р° РЅР° РїСЏС‚РѕРј - Toyota. РўР°РєРёРµ СЂРµР·СѓР»СЊС‚Р°С‚С‹ РґР°Р»Рѕ РёСЃСЃР»РµРґРѕРІР°РЅРёРµ РєРѕРјРїР°РЅРёРё Online Market Intelligence. Р’ РґРІР°РґС†Р°С‚РєСѓ Р»СЋР±РёРјС‹С… СЂРѕСЃСЃРёСЏРЅР°РјРё Р±СЂРµРЅРґРѕРІ РІРѕС€Р»Рё Nissan, Reebok Рё Honda, РЅРµ РїРѕРїР°РІС€РёРµ РІ РїСЂРѕС€Р»РѕРіРѕРґРЅРёР№ СЂРµР№С‚РёРЅРі.', 'РџРµСЂРІС‹Рµ С‚СЂРё РјРµСЃС‚Р° СЂРµР№С‚РёРЅРіР° Р»СЋР±РёРјС‹С… Р±СЂРµРЅРґРѕРІ СЂРѕСЃСЃРёСЏРЅ Р·Р°РЅСЏР»Рё Samsung, Sony Рё Nokia. РўР°РєРёРµ СЂРµР·СѓР»СЊС‚Р°С‚С‹ РґР°Р»Рѕ РёСЃСЃР»РµРґРѕРІР°РЅРёРµ, РїСЂРѕРІРµРґРµРЅРЅРѕРµ РєРѕРјРїР°РЅРёРµР№ Online Market Intelligence.\n\nРўР°РєРёРј РѕР±СЂР°Р·РѕРј, РІ С‚СЂРѕР№РєРµ Р»РёРґРµСЂРѕРІ РѕРєР°Р·Р°Р»РёСЃСЊ С‚Рµ Р¶Рµ Р±СЂРµРЅРґС‹, С‡С‚Рѕ Рё РІ 2008 РіРѕРґСѓ, РЅРѕ Samsung РїРѕРґРЅСЏР»СЃСЏ РЅР° РїРµСЂРІРѕРµ РјРµСЃС‚Рѕ СЃРѕ РІС‚РѕСЂРѕРіРѕ, Р° Sony РїРѕС‚РµСЂСЏР»Р° РѕРґРЅСѓ СЃС‚СЂРѕС‡РєСѓ. РќР° С‡РµС‚РІРµСЂС‚РѕРј РјРµСЃС‚Рµ Panasonic, Р° РЅР° РїСЏС‚РѕРј - Toyota. Р’ РїСЂРѕС€Р»РѕРј РіРѕРґСѓ РїСЏС‚РѕРµ РјРµСЃС‚Рѕ Р·Р°РЅРёРјР°Р» Adidas, РѕРїСѓСЃС‚РёРІС€РёР№СЃСЏ РЅР° С€РµСЃС‚СѓСЋ СЃС‚СЂРѕС‡РєСѓ.\n\nРЎРёР»СЊРЅРµРµ РІСЃРµРіРѕ СѓРїР°Р»Рё РІ СЂРµР№С‚РёРЅРіРµ Р±СЂРµРЅРґС‹ BMW (РѕРїСѓСЃС‚РёР»СЃСЏ СЃ СЃРµРґСЊРјРѕРіРѕ РјРµСЃС‚Р° РЅР° РґРµРІСЏС‚РЅР°РґС†Р°С‚РѕРµ) Рё Mercedes (СЃ РІРѕСЃСЊРјРѕРіРѕ РЅР° РІРѕСЃРµРјРЅР°РґС†Р°С‚РѕРµ). РњРµР¶РґСѓ С‚РµРј, РІ РґРІР°РґС†Р°С‚РєСѓ Р»СЋР±РёРјС‹С… Р±СЂРµРЅРґРѕРІ РїРѕРїР°Р»Рё Nissan, Reebok Рё Honda, РЅРµ РІРѕС€РµРґС€РёРµ РІ СЂРµР№С‚РёРЅРі 2008 РіРѕРґР°.\n\nРџРѕР»РЅРѕСЃС‚СЊСЋ СЃРїРёСЃРѕРє Р»СЋР±РёРјС‹С… Р±СЂРµРЅРґРѕРІ РІС‹РіР»СЏРґРёС‚ СЃР»РµРґСѓСЋС‰РёРј РѕР±СЂР°Р·РѕРј:\n\n   1. Samsung\n   2. Sony\n   3. Nokia\n   4. Panasonic\n   5. Toyota\n   6. Adidas\n   7. Canon\n   8. Bosch\n   9. Asus\n  10. Philips\n  11. HP\n  12. Sony Ericsson\n  13. Nike\n  14. LG\n  15. Nissan\n  16. Coca-Cola\n  17. Reebok\n  18. Mercedes\n  19. BMW\n  20. Honda \n\nР’ РѕСЃРЅРѕРІСѓ СЂРµР№С‚РёРЅРіР° Р»РµРіР»Р° РґРѕР»СЏ СѓРїРѕРјСЏРЅСѓРІС€РёС… РєР°Р¶РґС‹Р№ Р±СЂРµРЅРґ РѕС‚ РѕР±С‰РµРіРѕ С‡РёСЃР»Р° СЂРµСЃРїРѕРЅРґРµРЅС‚РѕРІ, РЅР°Р·РІР°РІС€РёС… С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ Р±СЂРµРЅРґ. РЎРѕРѕР±С‰Р°РµС‚СЃСЏ С‚Р°РєР¶Рµ, С‡С‚Рѕ РїРѕР»РЅС‹Р№ РјР°С‚РµСЂРёР°Р» Рѕ СЂРµР·СѓР»СЊС‚Р°С‚Р°С… РёСЃСЃР»РµРґРѕРІР°РЅРёСЏ СЃ РєРѕРјРјРµРЅС‚Р°СЂРёСЏРјРё СЌРєСЃРїРµСЂС‚РѕРІ Р±СѓРґРµС‚ РѕРїСѓР±Р»РёРєРѕРІР°РЅ РІ РµР¶РµРЅРµРґРµР»СЊРЅРёРєРµ "РљРѕРјРїР°РЅРёСЏ". ');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `page_page`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `page_page`
 --
 
-DROP TABLE IF EXISTS `page_page`;
 CREATE TABLE IF NOT EXISTS `page_page` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `obj_id` int(10) unsigned NOT NULL DEFAULT '0',
@@ -528,7 +514,7 @@ CREATE TABLE IF NOT EXISTS `page_page` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
 
 --
--- Дамп данных таблицы `page_page`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `page_page`
 --
 
 INSERT INTO `page_page` (`id`, `obj_id`, `name`, `folder_id`, `allow_comment`, `compiled`, `keywords_reset`, `description_reset`) VALUES
@@ -540,10 +526,9 @@ INSERT INTO `page_page` (`id`, `obj_id`, `name`, `folder_id`, `allow_comment`, `
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `page_pagefolder`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `page_pagefolder`
 --
 
-DROP TABLE IF EXISTS `page_pagefolder`;
 CREATE TABLE IF NOT EXISTS `page_pagefolder` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `obj_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -554,7 +539,7 @@ CREATE TABLE IF NOT EXISTS `page_pagefolder` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `page_pagefolder`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `page_pagefolder`
 --
 
 INSERT INTO `page_pagefolder` (`id`, `obj_id`, `name`, `title`) VALUES
@@ -563,10 +548,9 @@ INSERT INTO `page_pagefolder` (`id`, `obj_id`, `name`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `page_pagefolder_tree`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `page_pagefolder_tree`
 --
 
-DROP TABLE IF EXISTS `page_pagefolder_tree`;
 CREATE TABLE IF NOT EXISTS `page_pagefolder_tree` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `path` text,
@@ -577,7 +561,7 @@ CREATE TABLE IF NOT EXISTS `page_pagefolder_tree` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `page_pagefolder_tree`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `page_pagefolder_tree`
 --
 
 INSERT INTO `page_pagefolder_tree` (`id`, `path`, `foreign_key`, `level`, `spath`) VALUES
@@ -586,10 +570,9 @@ INSERT INTO `page_pagefolder_tree` (`id`, `path`, `foreign_key`, `level`, `spath
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `page_page_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `page_page_lang`
 --
 
-DROP TABLE IF EXISTS `page_page_lang`;
 CREATE TABLE IF NOT EXISTS `page_page_lang` (
   `id` int(11) NOT NULL DEFAULT '0',
   `lang_id` int(11) NOT NULL DEFAULT '0',
@@ -601,25 +584,24 @@ CREATE TABLE IF NOT EXISTS `page_page_lang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Дамп данных таблицы `page_page_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `page_page_lang`
 --
 
 INSERT INTO `page_page_lang` (`id`, `lang_id`, `title`, `content`, `keywords`, `description`) VALUES
-(1, 1, 'Добро пожаловать!', '<p><span style="font-size: x-large;"><strong><span style="font-size: large;"><span style="color: #ff9900;">Добро пожаловать в арт-студию Николая Добрина!</span></span></strong></span></p>', '', ''),
+(1, 1, 'Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ!', '<p><span style="font-size: x-large;"><strong><span style="font-size: large;"><span style="color: #ff9900;">Р”РѕР±СЂРѕ РїРѕР¶Р°Р»РѕРІР°С‚СЊ РІ Р°СЂС‚-СЃС‚СѓРґРёСЋ РќРёРєРѕР»Р°СЏ Р”РѕР±СЂРёРЅР°!</span></span></strong></span></p>', '', ''),
 (1, 2, 'About us', '<strong>mzz</strong> - is a php5 framework for web-applications.', NULL, NULL),
-(2, 1, '404 Not Found', 'Запрашиваемая страница не найдена!', NULL, NULL),
+(2, 1, '404 Not Found', 'Р—Р°РїСЂР°С€РёРІР°РµРјР°СЏ СЃС‚СЂР°РЅРёС†Р° РЅРµ РЅР°Р№РґРµРЅР°!', NULL, NULL),
 (2, 2, '404 Not Found', 'Page doesn''t exist', NULL, NULL),
-(4, 1, 'Доступ запрещён', 'Доступ запрещён', NULL, NULL),
+(4, 1, 'Р”РѕСЃС‚СѓРї Р·Р°РїСЂРµС‰С‘РЅ', 'Р”РѕСЃС‚СѓРї Р·Р°РїСЂРµС‰С‘РЅ', NULL, NULL),
 (4, 2, 'Access not allowed.', 'Access not allowed. Try to login or register.', NULL, NULL),
-(12, 1, 'Услуги и цены', '<h1 style="text-align: center;">апрва рв ав</h1>\n<h1 style="text-align: center;"></h1>\n<h1 style="text-align: center;"><img title="Круто" src="../../../templates/js/tiny_mce/plugins/emotions/img/smiley-cool.gif" border="0" alt="Круто" /></h1>\n<h1 style="text-align: center;"></h1>\n<h1 style="text-align: center;">тра тра тра :</h1>\n<ol>\n<li>ывапываопр ы</li>\n<li>выапываопывдпр ы</li>\n<li>впжыврпвыаопры</li>\n<li>вапжывопрывалпоы</li>\n<li>вапэывопрвы п</li>\n<li>выпвыаип </li>\n<li></li>\n</ol>', '', 'чвсррв ир чдор чдол');
+(12, 1, 'РЈСЃР»СѓРіРё Рё С†РµРЅС‹', '<h1 style="text-align: center;">Р°РїСЂРІР° СЂРІ Р°РІ</h1>\n<h1 style="text-align: center;"></h1>\n<h1 style="text-align: center;"><img title="РљСЂСѓС‚Рѕ" src="../../../templates/js/tiny_mce/plugins/emotions/img/smiley-cool.gif" border="0" alt="РљСЂСѓС‚Рѕ" /></h1>\n<h1 style="text-align: center;"></h1>\n<h1 style="text-align: center;">С‚СЂР° С‚СЂР° С‚СЂР° :</h1>\n<ol>\n<li>С‹РІР°РїС‹РІР°РѕРїСЂ С‹</li>\n<li>РІС‹Р°РїС‹РІР°РѕРїС‹РІРґРїСЂ С‹</li>\n<li>РІРїР¶С‹РІСЂРїРІС‹Р°РѕРїСЂС‹</li>\n<li>РІР°РїР¶С‹РІРѕРїСЂС‹РІР°Р»РїРѕС‹</li>\n<li>РІР°РїСЌС‹РІРѕРїСЂРІС‹ Рї</li>\n<li>РІС‹РїРІС‹Р°РёРї </li>\n<li></li>\n</ol>', '', 'С‡РІСЃСЂСЂРІ РёСЂ С‡РґРѕСЂ С‡РґРѕР»');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_access`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_access`
 --
 
-DROP TABLE IF EXISTS `sys_access`;
 CREATE TABLE IF NOT EXISTS `sys_access` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `action_id` int(11) unsigned DEFAULT NULL,
@@ -636,7 +618,7 @@ CREATE TABLE IF NOT EXISTS `sys_access` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=9100 ;
 
 --
--- Дамп данных таблицы `sys_access`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_access`
 --
 
 INSERT INTO `sys_access` (`id`, `action_id`, `class_id`, `obj_id`, `uid`, `gid`, `allow`, `deny`) VALUES
@@ -664,10 +646,9 @@ INSERT INTO `sys_access` (`id`, `action_id`, `class_id`, `obj_id`, `uid`, `gid`,
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_access_registry`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_access_registry`
 --
 
-DROP TABLE IF EXISTS `sys_access_registry`;
 CREATE TABLE IF NOT EXISTS `sys_access_registry` (
   `obj_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `class_id` int(11) unsigned DEFAULT NULL,
@@ -675,7 +656,7 @@ CREATE TABLE IF NOT EXISTS `sys_access_registry` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1465 ;
 
 --
--- Дамп данных таблицы `sys_access_registry`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_access_registry`
 --
 
 INSERT INTO `sys_access_registry` (`obj_id`, `class_id`) VALUES
@@ -708,10 +689,9 @@ INSERT INTO `sys_access_registry` (`obj_id`, `class_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_actions`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_actions`
 --
 
-DROP TABLE IF EXISTS `sys_actions`;
 CREATE TABLE IF NOT EXISTS `sys_actions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -720,7 +700,7 @@ CREATE TABLE IF NOT EXISTS `sys_actions` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=140 ;
 
 --
--- Дамп данных таблицы `sys_actions`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_actions`
 --
 
 INSERT INTO `sys_actions` (`id`, `name`) VALUES
@@ -840,10 +820,9 @@ INSERT INTO `sys_actions` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_classes`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_classes`
 --
 
-DROP TABLE IF EXISTS `sys_classes`;
 CREATE TABLE IF NOT EXISTS `sys_classes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -853,7 +832,7 @@ CREATE TABLE IF NOT EXISTS `sys_classes` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=64 ;
 
 --
--- Дамп данных таблицы `sys_classes`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_classes`
 --
 
 INSERT INTO `sys_classes` (`id`, `name`, `module_id`) VALUES
@@ -891,10 +870,9 @@ INSERT INTO `sys_classes` (`id`, `name`, `module_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_classes_actions`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_classes_actions`
 --
 
-DROP TABLE IF EXISTS `sys_classes_actions`;
 CREATE TABLE IF NOT EXISTS `sys_classes_actions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `class_id` int(11) unsigned DEFAULT NULL,
@@ -904,7 +882,7 @@ CREATE TABLE IF NOT EXISTS `sys_classes_actions` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=361 ;
 
 --
--- Дамп данных таблицы `sys_classes_actions`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_classes_actions`
 --
 
 INSERT INTO `sys_classes_actions` (`id`, `class_id`, `action_id`) VALUES
@@ -1023,10 +1001,9 @@ INSERT INTO `sys_classes_actions` (`id`, `class_id`, `action_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_config`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_config`
 --
 
-DROP TABLE IF EXISTS `sys_config`;
 CREATE TABLE IF NOT EXISTS `sys_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `module_name` varchar(50) NOT NULL DEFAULT '',
@@ -1041,20 +1018,19 @@ CREATE TABLE IF NOT EXISTS `sys_config` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `sys_config`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_config`
 --
 
 INSERT INTO `sys_config` (`id`, `module_name`, `name`, `title`, `type_id`, `value`, `args`) VALUES
-(3, 'news', 'items_per_page', 'Количество элементов на страницу', 1, '20', ''),
-(4, 'fileManager', 'public_path', 'Путь до паблик папки', 2, '', '');
+(3, 'news', 'items_per_page', 'РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РЅР° СЃС‚СЂР°РЅРёС†Сѓ', 1, '20', ''),
+(4, 'fileManager', 'public_path', 'РџСѓС‚СЊ РґРѕ РїР°Р±Р»РёРє РїР°РїРєРё', 2, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_lang`
 --
 
-DROP TABLE IF EXISTS `sys_lang`;
 CREATE TABLE IF NOT EXISTS `sys_lang` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(20) DEFAULT NULL,
@@ -1063,20 +1039,19 @@ CREATE TABLE IF NOT EXISTS `sys_lang` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `sys_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_lang`
 --
 
 INSERT INTO `sys_lang` (`id`, `name`, `title`) VALUES
-(1, 'ru', 'ру'),
+(1, 'ru', 'СЂСѓ'),
 (2, 'en', 'en');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_lang_lang`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_lang_lang`
 --
 
-DROP TABLE IF EXISTS `sys_lang_lang`;
 CREATE TABLE IF NOT EXISTS `sys_lang_lang` (
   `id` int(11) unsigned NOT NULL,
   `lang_id` int(11) unsigned NOT NULL,
@@ -1085,22 +1060,21 @@ CREATE TABLE IF NOT EXISTS `sys_lang_lang` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
 
 --
--- Дамп данных таблицы `sys_lang_lang`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_lang_lang`
 --
 
 INSERT INTO `sys_lang_lang` (`id`, `lang_id`, `name`) VALUES
-(1, 1, 'русский'),
+(1, 1, 'СЂСѓСЃСЃРєРёР№'),
 (1, 2, 'russian'),
-(2, 1, 'английский'),
+(2, 1, 'Р°РЅРіР»РёР№СЃРєРёР№'),
 (2, 2, 'english');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_modules`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_modules`
 --
 
-DROP TABLE IF EXISTS `sys_modules`;
 CREATE TABLE IF NOT EXISTS `sys_modules` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -1111,39 +1085,38 @@ CREATE TABLE IF NOT EXISTS `sys_modules` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=28 ;
 
 --
--- Дамп данных таблицы `sys_modules`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_modules`
 --
 
 INSERT INTO `sys_modules` (`id`, `name`, `title`, `icon`, `order`) VALUES
-(1, 'news', 'Новости', 'mzz-icon mzz-icon-block', 10),
-(2, 'user', 'Пользователи', 'users.gif', 90),
-(4, 'page', 'Страницы', 'pages.gif', 20),
-(5, 'access', 'Права доступа', 'access.gif', 10),
-(6, 'admin', 'Администрирование', 'mzz-icon mzz-icon-wrench-cross', 0),
-(8, 'comments', 'Комментарии', 'comments.gif', 40),
-(12, 'menu', 'Меню', 'pages.gif', 90),
+(1, 'news', 'РќРѕРІРѕСЃС‚Рё', 'mzz-icon mzz-icon-block', 10),
+(2, 'user', 'РџРѕР»СЊР·РѕРІР°С‚РµР»Рё', 'users.gif', 90),
+(4, 'page', 'РЎС‚СЂР°РЅРёС†С‹', 'pages.gif', 20),
+(5, 'access', 'РџСЂР°РІР° РґРѕСЃС‚СѓРїР°', 'access.gif', 10),
+(6, 'admin', 'РђРґРјРёРЅРёСЃС‚СЂРёСЂРѕРІР°РЅРёРµ', 'mzz-icon mzz-icon-wrench-cross', 0),
+(8, 'comments', 'РљРѕРјРјРµРЅС‚Р°СЂРёРё', 'comments.gif', 40),
+(12, 'menu', 'РњРµРЅСЋ', 'pages.gif', 90),
 (18, 'captcha', 'Captcha', '', 0),
-(19, 'pager', 'Пейджер', NULL, NULL),
+(19, 'pager', 'РџРµР№РґР¶РµСЂ', NULL, NULL),
 (20, 'simple', 'simple', NULL, NULL),
-(22, 'config', 'Конфигурация', 'config.gif', 0),
+(22, 'config', 'РљРѕРЅС„РёРіСѓСЂР°С†РёСЏ', 'config.gif', 0),
 (25, 'fileManager', 'file manager', '', 0),
-(26, 'gallery', 'Галерея', NULL, 0),
-(27, 'headloader', 'Подгрузка js и css', '', 0);
+(26, 'gallery', 'Р“Р°Р»РµСЂРµСЏ', NULL, 0),
+(27, 'headloader', 'РџРѕРґРіСЂСѓР·РєР° js Рё css', '', 0);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_obj_id`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_obj_id`
 --
 
-DROP TABLE IF EXISTS `sys_obj_id`;
 CREATE TABLE IF NOT EXISTS `sys_obj_id` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1465 ;
 
 --
--- Дамп данных таблицы `sys_obj_id`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_obj_id`
 --
 
 INSERT INTO `sys_obj_id` (`id`) VALUES
@@ -1173,10 +1146,9 @@ INSERT INTO `sys_obj_id` (`id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_obj_id_named`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_obj_id_named`
 --
 
-DROP TABLE IF EXISTS `sys_obj_id_named`;
 CREATE TABLE IF NOT EXISTS `sys_obj_id_named` (
   `obj_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -1185,7 +1157,7 @@ CREATE TABLE IF NOT EXISTS `sys_obj_id_named` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=1464 ;
 
 --
--- Дамп данных таблицы `sys_obj_id_named`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_obj_id_named`
 --
 
 INSERT INTO `sys_obj_id_named` (`obj_id`, `name`) VALUES
@@ -1209,10 +1181,9 @@ INSERT INTO `sys_obj_id_named` (`obj_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_sessions`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_sessions`
 --
 
-DROP TABLE IF EXISTS `sys_sessions`;
 CREATE TABLE IF NOT EXISTS `sys_sessions` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `sid` varchar(50) NOT NULL DEFAULT '',
@@ -1225,17 +1196,16 @@ CREATE TABLE IF NOT EXISTS `sys_sessions` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
--- Дамп данных таблицы `sys_sessions`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_sessions`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `sys_skins`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `sys_skins`
 --
 
-DROP TABLE IF EXISTS `sys_skins`;
 CREATE TABLE IF NOT EXISTS `sys_skins` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` char(32) DEFAULT NULL,
@@ -1244,7 +1214,7 @@ CREATE TABLE IF NOT EXISTS `sys_skins` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `sys_skins`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `sys_skins`
 --
 
 INSERT INTO `sys_skins` (`id`, `name`, `title`) VALUES
@@ -1254,10 +1224,9 @@ INSERT INTO `sys_skins` (`id`, `name`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_group`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `user_group`
 --
 
-DROP TABLE IF EXISTS `user_group`;
 CREATE TABLE IF NOT EXISTS `user_group` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` char(255) DEFAULT NULL,
@@ -1266,7 +1235,7 @@ CREATE TABLE IF NOT EXISTS `user_group` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `user_group`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `user_group`
 --
 
 INSERT INTO `user_group` (`id`, `name`, `is_default`) VALUES
@@ -1278,10 +1247,9 @@ INSERT INTO `user_group` (`id`, `name`, `is_default`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_user`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `user_user`
 --
 
-DROP TABLE IF EXISTS `user_user`;
 CREATE TABLE IF NOT EXISTS `user_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(255) NOT NULL DEFAULT '',
@@ -1298,7 +1266,7 @@ CREATE TABLE IF NOT EXISTS `user_user` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `user_user`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `user_user`
 --
 
 INSERT INTO `user_user` (`id`, `login`, `email`, `password`, `created`, `confirmed`, `last_login`, `language_id`, `timezone`, `skin`) VALUES
@@ -1311,10 +1279,9 @@ INSERT INTO `user_user` (`id`, `login`, `email`, `password`, `created`, `confirm
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_userauth`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `user_userauth`
 --
 
-DROP TABLE IF EXISTS `user_userauth`;
 CREATE TABLE IF NOT EXISTS `user_userauth` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) unsigned DEFAULT NULL,
@@ -1326,7 +1293,7 @@ CREATE TABLE IF NOT EXISTS `user_userauth` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=144 ;
 
 --
--- Дамп данных таблицы `user_userauth`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `user_userauth`
 --
 
 INSERT INTO `user_userauth` (`id`, `user_id`, `ip`, `hash`, `obj_id`, `time`) VALUES
@@ -1353,10 +1320,9 @@ INSERT INTO `user_userauth` (`id`, `user_id`, `ip`, `hash`, `obj_id`, `time`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_usergroup_rel`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `user_usergroup_rel`
 --
 
-DROP TABLE IF EXISTS `user_usergroup_rel`;
 CREATE TABLE IF NOT EXISTS `user_usergroup_rel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `group_id` int(11) DEFAULT NULL,
@@ -1367,7 +1333,7 @@ CREATE TABLE IF NOT EXISTS `user_usergroup_rel` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=34 ;
 
 --
--- Дамп данных таблицы `user_usergroup_rel`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `user_usergroup_rel`
 --
 
 INSERT INTO `user_usergroup_rel` (`id`, `group_id`, `user_id`) VALUES
@@ -1382,10 +1348,9 @@ INSERT INTO `user_usergroup_rel` (`id`, `group_id`, `user_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_useronline`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `user_useronline`
 --
 
-DROP TABLE IF EXISTS `user_useronline`;
 CREATE TABLE IF NOT EXISTS `user_useronline` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
@@ -1399,7 +1364,7 @@ CREATE TABLE IF NOT EXISTS `user_useronline` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED AUTO_INCREMENT=330 ;
 
 --
--- Дамп данных таблицы `user_useronline`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `user_useronline`
 --
 
 INSERT INTO `user_useronline` (`id`, `user_id`, `session`, `last_activity`, `url`, `ip`) VALUES
