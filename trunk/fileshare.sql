@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 19 2009 г., 18:17
+-- Время создания: Ноя 20 2009 г., 15:33
 -- Версия сервера: 5.1.30
 -- Версия PHP: 5.2.9
 
@@ -116,13 +116,22 @@ CREATE TABLE IF NOT EXISTS `filemanager_file` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `realname` (`realname`),
   KEY `folder_id` (`folder_id`,`name`,`ext`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=28 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Дамп данных таблицы `filemanager_file`
 --
 
 INSERT INTO `filemanager_file` (`id`, `realname`, `name`, `ext`, `size`, `modified`, `downloads`, `right_header`, `direct_link`, `about`, `folder_id`, `obj_id`, `storage_id`) VALUES
+(36, '2240e010babece19ae903118cc2343b4.jpg', 'Фото002_4.jpg', 'jpg', 346506, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(29, '8859a948a46beecbe92ae076d4c46944.txt', 'Versions.txt', 'txt', 710, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(30, 'd9a31b44cbab2f540e01a21f78039fbd.jpg', 'Фото000.jpg', 'jpg', 332675, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(31, '070711ad1b26c7080edfa8ce29e33491.jpg', 'Фото001.jpg', 'jpg', 339712, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(32, 'e6c157e9f7fa5e53cbd3a554bf385699.jpg', 'Фото001_2.jpg', 'jpg', 339712, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(33, 'e684f606f40470d9a761cbb7659c77dc.jpg', 'Фото002.jpg', 'jpg', 346506, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(34, '8bb2d763263b4c517dd8cdf20b7f9bb1.jpg', 'Фото002_2.jpg', 'jpg', 346506, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(35, 'd9c9c76609d5fa55a12b9f5fdb435cb3.jpg', 'Фото002_3.jpg', 'jpg', 346506, NULL, 0, NULL, 0, NULL, 4, NULL, 1),
+(28, 'a05bc556e4c300c1a6943ac466b3ea5b.', '.htaccess', '', 1389, NULL, 1, NULL, 0, NULL, 4, NULL, 1),
 (18, '4be81c34e3b9bf0ed67c304526dfbba2.sql', 'fileshare_9.sql', 'sql', 41698, NULL, 0, NULL, 0, NULL, 4, NULL, 1);
 
 -- --------------------------------------------------------
@@ -202,11 +211,11 @@ INSERT INTO `filemanager_storage` (`id`, `name`, `path`, `web_path`) VALUES
 CREATE TABLE IF NOT EXISTS `fileshare_file` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_id` int(16) NOT NULL,
-  `format` varchar(3) DEFAULT ' ',
+  `format` varchar(255) CHARACTER SET utf8 DEFAULT ' ',
   `title` varchar(255) CHARACTER SET utf8 NOT NULL,
   `description` varchar(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `fileshare_file`
@@ -215,7 +224,13 @@ CREATE TABLE IF NOT EXISTS `fileshare_file` (
 INSERT INTO `fileshare_file` (`id`, `file_id`, `format`, `title`, `description`) VALUES
 (1, 27, 'yes', 'дамп', 'дамп базы данных'),
 (2, 28, ' ', 'htaccess', 'хтаксес и тому подобное'),
-(3, 29, ' ', 'фывафыаыфв', 'блаблабла');
+(3, 29, ' ', 'фывафыаыфв', 'блаблабла'),
+(4, 30, ' ', '', ''),
+(5, 31, ' ', '', ''),
+(6, 32, ' ', '', ''),
+(7, 34, ' ', '', ''),
+(8, 35, ' ', '', ''),
+(9, 36, ' ', '', '');
 
 -- --------------------------------------------------------
 
@@ -1293,7 +1308,7 @@ CREATE TABLE IF NOT EXISTS `user_user` (
 
 INSERT INTO `user_user` (`id`, `login`, `email`, `password`, `created`, `confirmed`, `last_login`, `language_id`, `timezone`, `skin`) VALUES
 (1, 'guest', '', '', NULL, NULL, 1225005849, NULL, 3, 1),
-(2, 'admin', '', '098f6bcd4621d373cade4e832627b4f6', NULL, NULL, 1257208114, 1, 3, 1),
+(2, 'admin', '', '098f6bcd4621d373cade4e832627b4f6', NULL, NULL, 1258720193, 1, 3, 1),
 (3, 'moderator', '', '098f6bcd4621d373cade4e832627b4f6', 1188187851, NULL, 1203767664, 1, 3, 1),
 (4, 'user', '', '098f6bcd4621d373cade4e832627b4f6', 1243925700, NULL, NULL, NULL, 3, 1),
 (5, 'qwe', '', '202cb962ac59075b964b07152d234b70', 1249521132, NULL, NULL, 1, 3, 1);
