@@ -93,33 +93,26 @@ a:hover {
   display: block;
   position:relative;
   color: #fff;
-  font-size: 85%;
   font-size:30px;
 }
 
 /* middle block */
 
-#middleline {
-	left:250px;
-	top:60px;
-}
+#middleline {}
 
 #content, .leftmain {
-  width: 100%;
+  width: 80%;
+  float:right;
+  background-color: #555;
 }
 
  
 /* header */
 
 #header {
-	top:0px;
 	width:100%;
-	left:0px;
 	height:60px;
-	background: #000066;
-	/* Фон заглавной картинки
-	background:#f00 url(../images/main_img.jpg) repeat-x;
-	*/
+	background: #f00;
 }
 
 /* новости */
@@ -138,41 +131,35 @@ a:hover {
 
 #navMenu {
 	position:relative;
-	top: 38px;
-	float:right;
+	float:left;
+	width:20%;
+	background-color: #ff0;
 }
 
 #navMenu a {
-  color: #FFFFFF;
+  color: #000;
   text-decoration: none;
 }
 
 #navMenu a:hover {
   text-decoration: underline;
-  color: #E3ECEE;
 }
 
 #navMenu ul,#navMenu li {
   margin: 0;
   padding: 0;
-  display:inline;
 }
 
 #navMenu ul {
   position:relative;
-  text-align:right;
   margin: auto auto;
-  /*
-  min-height:500px;
-  width: 470px;
-  */
   float: left;
 }
 
 #navMenu li {
-  text-align:center;
+  padding-left:10px;
+  text-align:left;
   margin-left:1px;
-  background-color: #622;
 }
 
 #navMenu li.activeNavElement {
@@ -218,8 +205,7 @@ a:hover {
 
 #col2 {
   position:relative;
-  width: 100%;
-  background: #000066;
+  left:10px;
 }
 
 /* google chrome fix */
