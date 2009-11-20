@@ -42,13 +42,10 @@ $router->addRoute('withId', new requestRoute(':section/:id/:action', array('acti
 $router->addRoute('pageDefault', new requestRoute('page', array('section' => 'page', 'action' => 'view', 'name' => 'main')));
 $router->addRoute('pageActions', new requestRoute('page/:name/:action', array('section' => 'page', 'action' => 'view'), array('name' => '.+?', 'action' => '(?:view|edit|list|create|delete|createFolder|editFolder|moveFolder|deleteFolder|move)')));
 
-$router->addRoute('gallerySelect', new requestRoute('gallery', array('section' => 'gallery', 'action' => 'categoryList')));
-$router->addRoute('galleryList', new requestRoute('gallery/:name', array('section' => 'gallery', 'action' => 'list')));
-$router->addRoute('galleryUpload', new requestRoute('gallery/upload', array('section' => 'gallery', 'action' => 'upload')));
 $router->addRoute('fileshareUpload', new requestRoute('upload', array('section' => 'fileshare', 'action' => 'upload')));
 $router->addRoute('fileshareList', new requestRoute('list', array('section' => 'fileshare', 'action' => 'list')));
 
-$router->addRoute('default', new requestRoute('', array('section' => 'page', 'action' => 'view', 'name' => 'main')));
+$router->addRoute('default', new requestRoute('', array('section' => 'fileshare', 'action' => 'upload')));
 
 $router->addRoute('tags', new requestRoute(':section/tag/:tag', array('action' => 'searchByTag'), array('tag' => '.+?')));
 

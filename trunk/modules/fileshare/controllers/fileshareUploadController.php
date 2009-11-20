@@ -23,12 +23,11 @@ class fileshareUploadController extends simpleController
 {
     protected function getView()
     {
+		/* обязательные поля */
 		$validator = new formValidator();
-		$validator->add('required', 'file[title]', 'Укажите название фотографии!');
-		$validator->add('required', 'file[description]', 'Укажите описание фотографии!');
-		$validator->add('uploaded', 'uploadfile', 'Укажите файл для загрузки');
+		$validator->add('uploaded', 'uploadfile', 'Выберите файл!');
 		
-		/* загрузка файла */
+		/* указываем директорию */
 		$fileManagerFolderMapper = $this->toolkit->getMapper('fileManager', 'folder');
 		$folder = $fileManagerFolderMapper->searchByPath('root/fileshare');
 		if (!$folder) {
@@ -38,49 +37,32 @@ class fileshareUploadController extends simpleController
 		/* проверка данных */
 		if($validator->validate()) {
 			$data = new arrayDataspace($this->request->getArray('file', SC_POST));
-			$active = mzz_trim($data['active']);
-			if (!$active) {
-				$data['active'] = 0;
-			}
 			
 			/* загрузка файла */
 			$file = $folder->upload('uploadfile');
-
 			$fileMapper = $this->toolkit->getMapper('fileManager', 'file');
 			$fileMapper->save($file);
 			
-			$data['file']=$file->getName();		
-			
-			$this->smarty->assign('file_name', $data['file']);
-			$this->smarty->assign('success', true);
-			
 			/* запись в таблицу */
 			$FileshareFileMapper = $this->toolkit->getMapper('fileshare', 'fileshareFile');
+			$realname = $this->request->getArray('uploadfile', SC_FILES);
+			$realname = $realname['name'];
 			$upfile = $FileshareFileMapper->create();
-			$upfile->setFileid($data['title']);
+			$upfile->setFileId($file);
+			$upfile->setFormat($realname);
 			$upfile->setTitle($data['title']);
 			$upfile->setDescription($data['description']);
-			$upfile->setFileId($file);
-			$this->smarty->assign('data', $data);
 			$FileshareFileMapper->save($upfile);
-		} else {
-			/* дебаг 
-			echo "<pre style=\"background-color:#ddd;\">\n<strong>Дебаг:\n_POST:\n\n</strong>";
-			print_r($_POST);
-			echo"\n<strong>validator::getErrors()::export()</strong>\n\n";
-		   var_dump($validator->getErrors()->export());
-		   echo "</pre>";
-		   */
+			
+			$this->smarty->assign('realname', $realname);
 		}
+		$this->smarty->assign('form_action', '/upload');
 		
 		$url = new url('default2');
 		$url->setModule('fileshare');
 		$url->setAction('upload');
-		
-		$this->smarty->assign('form_action', '/upload');
 
         return $this->smarty->fetch('fileshare/upload.tpl');
     }
 }
-
 ?>
