@@ -84,7 +84,7 @@ class fileshareFileMapper extends mapper
        ),
         'format' => 
         array (
-            'type' => 'int',
+            'type' => 'varchar',
             'range' => 
             array (
                 0 => -2147483647,
